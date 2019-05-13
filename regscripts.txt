@@ -1,0 +1,239 @@
+<div class="row">
+                                            <div style="text-align: center">
+                                                <span id="lblError" class="mark">Your exam intimation will be intimate to you shortly.</span>
+                                            </div>
+                                            <br>
+
+
+                                            <div class="input-group">
+                                                <div class="form-line">
+
+                                                    <input name="txtRegNo" type="text" value="3180031781" maxlength="10" id="txtRegNo" tabindex="1" class="email numeric" onkeypress="return restrictspecial(event,'NUMERIC',this);" autocomplete="off" placeholder="Registration Number">
+                                                    <span id="rfvregno" style="color:orange;font-size:small;visibility:hidden;">* Required</span>
+                                                    <span id="RegularExpressionValidator1" style="color:orange;font-size:small;display:none;">* Invalid Registration No.</span>
+                                                </div>
+
+                                            </div>
+                                            <div class="input-group">
+                                                <div class="form-line">
+
+                                                    <input name="txtDOB" type="text" value="20-03-1995" maxlength="10" id="txtDOB" tabindex="2" class="pass form-control hasDatepicker" placeholder="Date of Birth" autocomplete="off">
+                                                    <span id="rfvdob" style="color:orange;font-size:small;visibility:hidden;">* Required</span>
+                                                    <span id="RegularExpressionValidator3" style="color:orange;font-size:small;display:none;">* Invalid Date Format</span>
+                                                </div>
+
+
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xs-4">
+
+                                                    <input type="submit" name="btnLogin" value="Login" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;btnLogin&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="btnLogin" class="btn btn-block bg-blue waves-effect" style="width: 100%;">
+                                                </div>
+                                                <div class="col-xs-4">
+
+                                                    <input type="submit" name="btncancel" value="Cancel" id="btncancel" class="btn btn-block bg-blue waves-effect" style="width: 100%;">
+                                                </div>
+                                            </div>
+                                            <br>
+                                            
+                                            <br>                                            
+                                            <br>
+                                            <div class="row">
+                                                <h5 style="color: #333333; font-family: Adobe Devanagari; font-weight: 600;">CENTRALISED EMPLOYMENT NOTICE (CEN) No.03/2018 Recruitment of JE, JE(IT), DMS, CMA. </h5>
+                                            </div>
+                                        </div>   
+
+
+
+   <script src="js/PrimaryReg.js"></script>
+
+    <script type="text/javascript">
+        //$(document).ready(function () {
+        $(function () {
+            var d = new Date();
+            var year = 1995;
+            d.setFullYear(year);
+            $("#txtDOB").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'dd-mm-yy',
+                yearRange: '1960:2001',
+                minDate: '01-07-1960',
+                maxDate: '01-07-2001',
+                showAnim: 'slideDown',
+                defaultDate: d,
+                showButtonPanel: true,
+                beforeShow: function (input) {
+                    setTimeout(function () {
+                        var buttonPane = $(input)
+                        .datepicker("widget")
+                        .find(".ui-datepicker-buttonpane");
+                        var btn = $('<button class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all" type="button">Clear</button>');
+                        btn
+                        .unbind("click")
+                        .bind("click", function () {
+                            $.datepicker._clearDate(input);
+                            //$('.changedobcolo').hide();
+                        });
+                        btn.appendTo(buttonPane);
+                    }, 1);
+                }
+            });
+        });
+		
+		
+		
+
+function restrictspecial(e, key, obj) {
+    var keynum;
+
+    if (window.event) // IE
+    {
+        keynum = e.keyCode;
+    }
+    else if (e.which) // Netscape/Firefox/Opera
+    {
+        keynum = e.which;
+    }
+    switch (key) {
+
+        case "STRING":
+            var keyboardchars = /[\x00\x08]/;
+            var validchars = new RegExp("[ A-Za-z]");
+            break;
+
+        case "NUMERIC1TO9":
+            var keyboardchars = /[\x00\x08]/;
+            var validchars = new RegExp("[1-9]");
+            break;
+
+
+        case "NUMERIC1":
+            var keyboardchars = /[\x00\x08]/;
+            var validchars = new RegExp("[0-1999]");
+            break;
+
+
+
+        case "NUMERIC":
+            var keyboardchars = /[\x00\x08]/;
+            var validchars = new RegExp("[0-9]");
+            break;
+
+        case "PERCENTAGE":
+            var keyboardchars = /[\x00\x08]/;
+            var validchars = new RegExp("[/^\d{0,2}(\.\d{0,2})?$/ ]");
+            break;
+
+        case "ACDNUMERIC":
+            var keyboardchars = /[\x00\x08]/;
+            var validchars = new RegExp("[0-9.]");
+            break;
+
+        case "ALPHANUMERIC":
+            var keyboardchars = /[\x00\x08]/;
+            var validchars = new RegExp("[ A-Za-z0-9]");
+            break;
+
+        case "EMAIL":
+            var keyboardchars = /[\x00\x08]/;
+            var validchars = new RegExp("[@_A-Za-z0-9.-]");
+            break;
+
+        case "ADDRESS":
+            var keyboardchars = /[\x00\x08]/;
+            var validchars = new RegExp("[-.',_A-Za-z0-9\/ ]");
+            break;
+
+        case "CANDNAME":
+
+            var keyboardchars = /[\x00\x08]/;
+            var validchars = new RegExp("[ .A-Za-z]");
+            break;
+
+        case "CERTNAME":
+
+            var keyboardchars = /[\x00\x08]/;
+            var validchars = new RegExp("[ /A-Za-z0-9]");
+            break;
+        case "SCHOOLNAME":
+            var keyboardchars = /[\x00\x08]/;
+            var validchars = new RegExp("[.'A-Za-z0-9&_ ]");
+            break;
+
+        case "EXPERIENCE":
+            var keyboardchars = /[\x00\x08]/;
+            var validchars = new RegExp("[.'A-Za-z0-9-&_, ]");
+            break;
+
+        case "COLLEGE":
+            var keyboardchars = /[\x00\x08]/;
+            var validchars = new RegExp("[.'A-Za-z\s ]");
+            break;
+
+        case "DATE":
+
+            var keyboardchars = /[\x00\x08]/;
+            var validchars = new RegExp("[]");
+            return false;
+            break;
+
+        case "CITY":
+            var keyboardchars = /[\x00\x08]/;
+            var validchars = new RegExp("[A-Za-z\s ]");
+            break;
+
+        case "TEXTAREA":
+            var validchars = new RegExp("[-.,_A-Za-z0-9 ]");
+            var keychar = String.fromCharCode(keynum);
+            if (!validchars.test(keychar)) {
+                return false
+            } else {
+                return keychar;
+            }
+            break;
+
+        default:
+            var keyboardchars = /[\x00\x08]/;
+            var validchars = new RegExp("[ A-Za-z0-9]");
+            break;
+    }
+}
+
+    </script>
+
+    <script type="text/javascript">
+        var specialKeys = new Array();
+        specialKeys.push(8); //Backspace
+        $(function () {
+            $(".numeric").bind("keypress", function (e) {
+                var keyCode = e.which ? e.which : e.keyCode
+                var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);
+                $(".error").css("display", ret ? "none" : "inline");
+                return ret;
+            });
+            $(".numeric").bind("paste", function (e) {
+                return false;
+            });
+            $(".numeric").bind("drop", function (e) {
+                return false;
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#c_ui_prelogin_head_examplecaptcha_CaptchaImageDiv a').css('pointer-events', 'none');
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        function HideLabel() {
+            var seconds = 5;
+            setTimeout(function () {
+                document.getElementById("lblError").style.display = "none";
+        }, seconds * 1200);
+    };
+    </script>
